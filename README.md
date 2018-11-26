@@ -1,0 +1,7 @@
+# Pardal
+
+Running:
+
+```bash
+
+```

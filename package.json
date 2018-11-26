@@ -1,0 +1,28 @@
+{
+  "name": "pardal-web",
+  "version": "0.0.1",
+  "description": "An accessible and customisable Twitter client",
+  "main": "index.js",
+  "scripts": {
+    "electron": "electron",
+    "electron-build": "ng build --prod && npm run electron",
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anapaulagomes/pardal-web.git"
+  },
+  "keywords": [
+    "twitter",
+    "acessibility"
+  ],
+  "author": "Ana Paula Gomes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anapaulagomes/pardal-web/issues"
+  },
+  "homepage": "https://github.com/anapaulagomes/pardal-web#readme",
+  "devDependencies": {
+    "electron": "^3.0.10"
+  }
+}
