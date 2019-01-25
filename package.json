@@ -1,12 +1,10 @@
 {
-  "name": "pardal-web",
+  "name": "pardal",
   "version": "0.0.1",
   "description": "An accessible and customisable Twitter client",
   "main": "index.js",
   "scripts": {
-    "electron": "electron",
-    "electron-build": "ng build --prod && npm run electron",
-    "test": "npm test"
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -23,6 +21,9 @@
   },
   "homepage": "https://github.com/anapaulagomes/pardal-web#readme",
   "devDependencies": {
-    "electron": "^3.0.10"
+    "devtron": "^1.4.0",
+    "electron": "^3.1.1",
+    "electron-packager": "^13.0.1",
+    "electron-prebuilt": "^1.4.13"
   }
 }
