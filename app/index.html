@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Pardal</title>
-  </head>
-  <body>
-    <header>
-      <h1>Timeline</h1>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <title>Pardal</title>
+</head>
+<body>
+  <header>
+    <h1>{{ Buffer placeholder }}</h1>
+  </header>
 
-    <main role="main">
-      <div id="content">
-        <p id="0">episod : You'd be right more often if you thought you were wrong.. Tue Aug 28 19:59:34 +0000 2012 via web</p>
-        <p id="1">oauth_dancer : just another test. Tue Aug 28 21:16:23 +0000 2012 via OAuth Dancer Reborn</p>
-        <p id="2">raffi : lecturing at the "analyzing big data with twitter" class at @cal with @othman  http://t.co/bfj7zkDJ. Tue Aug 28 21:08:15 +0000 2012 via Safari on iOS </p>
-      </div>
-    </main>
+  <form id="template-form" hidden>
+    <textarea id="template" name="template" rows="5" cols="33">
+    </textarea>
+    <input id="save-template" type="submit" value="Save">
+  </form>
 
-    <script>require('./js/tweets')</script>
-  </body>
+  <script>require('./js/templates')</script>
+  <script>require('./js/tweets')</script>
+
+</body>
 </html>

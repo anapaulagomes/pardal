@@ -4,11 +4,12 @@
   "description": "An accessible and customisable Twitter client",
   "main": "index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-packager ./pardal pardal --platform=darwin,win32,linux"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anapaulagomes/pardal-web.git"
+    "url": "git+https://github.com/anapaulagomes/pardal.git"
   },
   "keywords": [
     "twitter",
@@ -17,9 +18,9 @@
   "author": "Ana Paula Gomes",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/anapaulagomes/pardal-web/issues"
+    "url": "https://github.com/anapaulagomes/pardal/issues"
   },
-  "homepage": "https://github.com/anapaulagomes/pardal-web#readme",
+  "homepage": "https://github.com/anapaulagomes/pardal#readme",
   "devDependencies": {
     "devtron": "^1.4.0",
     "electron": "^3.1.1",
