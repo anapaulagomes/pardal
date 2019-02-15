@@ -1,45 +1,43 @@
 const { remote, ipcRenderer } = require('electron');
-const fakeTimeline = require(remote.app.getAppPath() + '/tests/fixtures/timeline.json');
+const fakeTimeline = require('./tests/fixtures/timeline.json');
 
 const { speak } = require('./speaking');
 const { format } = require('./templates');
-let currentTweet = 0;
-
+const first = -1;
+let currentTweet = first;
 
 const timeline = () => {
     // FIXME this is gonna be replaced by real content
     return fakeTimeline;
 }
 
+const scroll = (direction, last) => {
+  if (direction === 'up' && currentTweet !== first) {
+    currentTweet -= 1;
+  }
+  if (direction === 'down' && currentTweet !== last) {
+    currentTweet += 1;
+  }
+}
+
 function readTweets(direction) {
     const content = timeline();
 
+    scroll(direction, content.length);
+
     if (currentTweet === content.length) {
         speak("End of the timeline.");
-        if (direction === 'up') {
-            currentTweet -= 1;
-        }
     } else if (currentTweet < 0) {
         speak("End of the timeline.");
-        if (direction === 'down') {
-            currentTweet += 1;
-        }
     } else {
         const formattedTweet = format('tweet', content[currentTweet]);
         speak(formattedTweet);
-
-        if (direction === 'down') {
-            currentTweet += 1;
-        } else if (direction === 'up') {
-            currentTweet -= 1;
-        }
     }
 }
 
-ipcRenderer.on('read-tweets-down', () => {
-    readTweets('down');
-});
+const resetCurrent = () => { currentTweet = first; }
 
-ipcRenderer.on('read-tweets-up', () => {
-    readTweets('up');
-});
+module.exports= {
+  readTweets,
+  resetCurrent,
+};

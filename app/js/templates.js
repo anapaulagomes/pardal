@@ -1,7 +1,3 @@
-const { ipcRenderer } = require('electron');
-const { speak } = require('./speaking');
-const saveTemplateButton = document.querySelector('#save-template');
-
 const defaultTemplate = {
     tweet: "$screen_name : $message : $when , $from"
 }
@@ -19,9 +15,9 @@ const getTemplates = () => {
     return JSON.parse(window.localStorage.getItem('templates')) || defaultTemplate
 }
 
-const addTemplate = (templateKey, template) => {
+const addTemplate = (type, template) => {
     let templates = getTemplates();
-    templates[templateKey] = template;
+    templates[type] = template;
 
     window.localStorage.setItem('templates', JSON.stringify(templates));
     return templates;
@@ -43,28 +39,8 @@ const getNestedObject = (nestedObj, pathArr) => {
         (obj && obj[key] !== 'undefined') ? obj[key] : undefined, nestedObj);
 }
 
-function addTweetTemplate() {
-    const template = document.querySelector('#template').value;
-    addTemplate('tweet', template);
-}
-
-function showTemplateForm() {
-    speak("Please type your tweet template.");
-    let form = document.querySelector('#template-form');
-    let template = document.querySelector('#template');
-    form.hidden = false;
-    template.textContent = getTemplates()['tweet'];
-    template.focus();
-}
-
-ipcRenderer.on('settings-create-template', () => {
-    showTemplateForm();
-});
-
-saveTemplateButton.addEventListener('click' , function(){
-    addTweetTemplate();
-});
-
 module.exports = {
     format,
+    addTemplate,
+    getTemplates,
 }

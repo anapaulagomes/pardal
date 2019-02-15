@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager ./pardal pardal --platform=darwin,win32,linux"
+    "build": "electron-packager ./pardal pardal --platform=darwin,win32,linux",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,14 @@
     "devtron": "^1.4.0",
     "electron": "^4.0.4",
     "electron-packager": "^13.0.1",
-    "electron-prebuilt": "^1.4.13"
+    "electron-prebuilt": "^1.4.13",
+    "jest": "^24.1.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "app/**/*.{js,jsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/**/*.{json}"
+    ]
   }
 }
