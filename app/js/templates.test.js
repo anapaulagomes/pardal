@@ -1,4 +1,4 @@
-let { getTemplates, addTemplate, format } = require('./templates');
+const { getTemplates, addTemplate, format } = require('./templates');
 
 describe('getTemplates', () => {
   it('should return the template stored in localStorage if there is one', () => {

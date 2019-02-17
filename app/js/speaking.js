@@ -6,7 +6,7 @@ https://developers.google.com/web/updates/2014/01/Web-apps-that-talk-Introductio
 */
 
 function speak(value) {
-    var msg = new SpeechSynthesisUtterance(value);
+    const msg = new SpeechSynthesisUtterance(value);
     window.speechSynthesis.speak(msg);
 }
 

@@ -16,7 +16,7 @@ const getTemplates = () => {
 }
 
 const addTemplate = (type, template) => {
-    let templates = getTemplates();
+    const templates = getTemplates();
     templates[type] = template;
 
     window.localStorage.setItem('templates', JSON.stringify(templates));
@@ -26,7 +26,7 @@ const addTemplate = (type, template) => {
 const format = (templateKey, content) => {
     let formattedContent = getTemplates()[templateKey];
 
-    for (var variable in templateKeysMapping[templateKey]) {
+    for (const variable in templateKeysMapping[templateKey]) {
         const keyFromTwitter = templateKeysMapping[templateKey][variable]
         const valueFromVariable = getNestedObject(content, keyFromTwitter);
         formattedContent = formattedContent.replace(`$${variable}`, valueFromVariable);

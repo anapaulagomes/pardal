@@ -12,8 +12,8 @@ function addTweetTemplate() {
 
 function showTemplateForm() {
   speak("Please type your tweet template.");
-  let form = document.querySelector('#template-form');
-  let template = document.querySelector('#template');
+  const form = document.querySelector('#template-form');
+  const template = document.querySelector('#template');
   form.hidden = false;
   template.textContent = getTemplates()['tweet'];
   template.focus();
