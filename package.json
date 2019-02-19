@@ -6,7 +6,8 @@
   "scripts": {
     "start": "electron .",
     "build": "electron-packager ./pardal pardal --platform=darwin,win32,linux",
-    "test": "jest --coverage",
+    "test:unit": "jest --coverage --testPathIgnorePatterns='app/js/tests/integration'",
+    "test:integration": "jest --coverage --detectOpenHandles --maxWorkers=1 'app/js/tests/integration'",
     "lint": "eslint ."
   },
   "repository": {
@@ -29,6 +30,7 @@
     "electron-prebuilt": "^1.4.13"
   },
   "devDependencies": {
+    "spectron": "^5.0.0",
     "devtron": "^1.4.0",
     "eslint": "^5.14.1",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -43,6 +45,7 @@
   "jest": {
     "collectCoverageFrom": [
       "app/**/*.{js,jsx}",
+      "!app/js/tests/**/*",
       "!<rootDir>/node_modules/",
       "!<rootDir>/**/*.{json}"
     ]

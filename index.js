@@ -1,6 +1,7 @@
 const { app, BrowserWindow, globalShortcut, Menu, Tray } = require('electron');
 
 let mainWindow = null;
+global.status = { speaking: false };
 
 app.on('ready', () => {
     mainWindow = new BrowserWindow({

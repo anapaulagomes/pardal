@@ -1,10 +1,10 @@
-const { readTweets, resetCurrent } = require('./tweets');
-const { speak } = require('./speaking');
-const { format } = require('./templates');
+const { readTweets, resetCurrent } = require('../../tweets');
+const { speak } = require('../../speaking');
+const { format } = require('../../templates');
 
-jest.mock('./speaking');
-jest.mock('./templates');
-jest.mock('./tests/fixtures/timeline.json', () => ([
+jest.mock('../../speaking');
+jest.mock('../../templates');
+jest.mock('../fixtures/timeline.json', () => ([
   { full_text: 'first tweet' },
   { full_text: 'second tweet' },
 ]), { virtual: true });
