@@ -1,4 +1,4 @@
-let { getTemplates, addTemplate, format } = require('../../templates');
+const { getTemplates, addTemplate, format } = require('../../templates');
 
 describe('getTemplates', () => {
   it('should return the template stored in localStorage if there is one', () => {
@@ -83,7 +83,7 @@ describe('format', () => {
       expect(format('tweet', content)).toEqual('OAuth Dancer Reborn');
     });
 
-    it('should map $screen_name to users\'s nested field screen_name', () => {
+    it("should map $screen_name to users's nested field screen_name", () => {
       window.localStorage.setItem('templates', '{ "tweet": "$screen_name" }');
 
       const content = {
@@ -97,7 +97,10 @@ describe('format', () => {
     });
 
     it('should be able to format templates composed by multiple fields', () => {
-      window.localStorage.setItem('templates', '{ "tweet": "$screen_name : $message : $when , $from" }');
+      window.localStorage.setItem(
+        'templates',
+        '{ "tweet": "$screen_name : $message : $when , $from" }',
+      );
 
       const content = {
         created_at: 'Tue Aug 28 21:16:23 +0000 2012',
@@ -107,7 +110,7 @@ describe('format', () => {
       };
 
       expect(format('tweet', content)).toEqual(
-        'oauth_dancer : just another test : Tue Aug 28 21:16:23 +0000 2012 , OAuth Dancer Reborn'
+        'oauth_dancer : just another test : Tue Aug 28 21:16:23 +0000 2012 , OAuth Dancer Reborn',
       );
     });
   });

@@ -1,23 +1,21 @@
+const { remote } = require('electron');
 const { speak } = require('../../speaking');
 
 global.status = {
   speaking: false,
 };
 
-let { remote } = require('electron');
-jest.mock('electron', () => {
-  return {
-    remote: {
-      getGlobal: jest.fn(() => global.status),
-    },
-  };
-});
+jest.mock('electron', () => ({
+  remote: {
+    getGlobal: jest.fn(() => global.status),
+  },
+}));
 
 describe('speak', () => {
   const listeners = {};
 
   beforeAll(() => {
-    const speechSynthesisUtteranceMock = jest.fn().mockImplementation((msg) => ({
+    const speechSynthesisUtteranceMock = jest.fn().mockImplementation(msg => ({
       diction: msg,
       addEventListener: jest.fn((event, callback) => {
         listeners[event] = callback;
@@ -30,11 +28,14 @@ describe('speak', () => {
     const speakMock = jest.fn();
     window.speechSynthesis = {
       speak: speakMock,
-    }
+    };
 
     speak('random tweet');
 
-    expect(speakMock).toBeCalledWith({ diction: 'random tweet', addEventListener: expect.any(Function)});
+    expect(speakMock).toHaveBeenCalledWith({
+      diction: 'random tweet',
+      addEventListener: expect.any(Function),
+    });
   });
 
   it('should set global status to the value of text when it starts speaking', () => {
@@ -42,11 +43,11 @@ describe('speak', () => {
 
     const event = {
       utterance: { text: 'random tweet' },
-    }
+    };
 
     listeners.start(event);
 
-    expect(remote.getGlobal).toBeCalledWith('status');
+    expect(remote.getGlobal).toHaveBeenCalledWith('status');
     expect(remote.getGlobal('status').speaking).toEqual('random tweet');
   });
 
@@ -55,11 +56,11 @@ describe('speak', () => {
 
     const event = {
       utterance: { text: 'random tweet' },
-    }
+    };
 
     listeners.end(event);
 
-    expect(remote.getGlobal).toBeCalledWith('status');
+    expect(remote.getGlobal).toHaveBeenCalledWith('status');
     expect(remote.getGlobal('status').speaking).toBeFalsy();
   });
 });

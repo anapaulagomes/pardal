@@ -21,7 +21,7 @@ describe('Reading tweets', () => {
   });
 
   it('should start the app with speaking status false', async () => {
-    const status = await app.electron.remote.getGlobal('status')
+    const status = await app.electron.remote.getGlobal('status');
 
     expect(status.speaking).toEqual(false);
   });
@@ -29,17 +29,17 @@ describe('Reading tweets', () => {
   it('should start speaking when read-tweets-down is emitted', async () => {
     await app.browserWindow.send('read-tweets-down');
 
-    const status = await app.electron.remote.getGlobal('status')
+    const status = await app.electron.remote.getGlobal('status');
 
     expect(status.speaking).toEqual(
-      'oauth_dancer : just another test : Tue Aug 28 21:16:23 +0000 2012 , OAuth Dancer Reborn'
+      'oauth_dancer : just another test : Tue Aug 28 21:16:23 +0000 2012 , OAuth Dancer Reborn',
     );
   });
 
   it('should start speaking End of Timeline when read-tweets-up is emitted at first', async () => {
     await app.browserWindow.send('read-tweets-up');
 
-    const status = await app.electron.remote.getGlobal('status')
+    const status = await app.electron.remote.getGlobal('status');
 
     expect(status.speaking).toEqual('End of the timeline.');
   });

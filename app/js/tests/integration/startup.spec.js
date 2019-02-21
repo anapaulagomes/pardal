@@ -7,10 +7,9 @@ describe('Application Startup', () => {
     app = await init(app);
   });
 
-  afterEach(async () => await stop(app));
+  afterEach(async () => stop(app));
 
   it('opens in background mode', async () => {
     expect(await app.browserWindow.isVisible()).toBeFalsy();
   });
-
 });

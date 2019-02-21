@@ -27,10 +27,10 @@
   "dependencies": {
     "electron": "^4.0.5",
     "electron-packager": "^13.0.1",
-    "electron-prebuilt": "^1.4.13"
+    "electron-prebuilt": "^1.4.13",
+    "spectron": "^5.0.0"
   },
   "devDependencies": {
-    "spectron": "^5.0.0",
     "devtron": "^1.4.0",
     "eslint": "^5.14.1",
     "eslint-config-airbnb-base": "^13.1.0",

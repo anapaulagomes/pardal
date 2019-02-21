@@ -11,11 +11,11 @@ function addTweetTemplate() {
 }
 
 function showTemplateForm() {
-  speak("Please type your tweet template.");
+  speak('Please type your tweet template.');
   const form = document.querySelector('#template-form');
   const template = document.querySelector('#template');
   form.hidden = false;
-  template.textContent = getTemplates()['tweet'];
+  template.textContent = getTemplates().tweet;
   template.focus();
 }
 
@@ -23,7 +23,7 @@ ipcRenderer.on('settings-create-template', () => {
   showTemplateForm();
 });
 
-saveTemplateButton.addEventListener('click' , function(){
+saveTemplateButton.addEventListener('click', () => {
   addTweetTemplate();
 });
 
@@ -34,5 +34,3 @@ ipcRenderer.on('read-tweets-down', () => {
 ipcRenderer.on('read-tweets-up', () => {
   readTweets('up');
 });
-
-

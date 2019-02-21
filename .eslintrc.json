@@ -1,8 +1,19 @@
 {
-  "plugins": [ "prettier", "jest" ],
-  "extends": [ "airbnb-base", "plugin:jest/recommended", "plugin:prettier/recommended" ],
+  "plugins": [
+    "prettier",
+    "jest"
+  ],
+  "extends": [
+    "prettier",
+    "plugin:jest/recommended",
+    "airbnb-base"
+  ],
   "globals": {
     "document": true,
-    "window": true
+    "window": true,
+    "SpeechSynthesisUtterance": true
+  },
+  "rules": {
+    "linebreak-style": 0
   }
 }

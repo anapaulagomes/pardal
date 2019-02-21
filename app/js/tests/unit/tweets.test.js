@@ -4,16 +4,17 @@ const { format } = require('../../templates');
 
 jest.mock('../../speaking');
 jest.mock('../../templates');
-jest.mock('../fixtures/timeline.json', () => ([
-  { full_text: 'first tweet' },
-  { full_text: 'second tweet' },
-]), { virtual: true });
+jest.mock(
+  '../fixtures/timeline.json',
+  () => [{ full_text: 'first tweet' }, { full_text: 'second tweet' }],
+  { virtual: true },
+);
 
 describe('readTweets, when timeline has 2 tweets', () => {
   const endOfTimelineMessage = 'End of the timeline.';
 
   beforeAll(() => {
-    format.mockImplementation((_, content) => content.full_text );
+    format.mockImplementation((_, content) => content.full_text);
   });
 
   beforeEach(() => {
@@ -26,7 +27,7 @@ describe('readTweets, when timeline has 2 tweets', () => {
       it('calls speak method with the first formatted tweet', () => {
         readTweets('down');
 
-        expect(speak).toBeCalledTimes(1);
+        expect(speak).toHaveBeenCalledTimes(1);
         expect(speak).toHaveBeenNthCalledWith(1, 'first tweet');
       });
     });
@@ -35,7 +36,7 @@ describe('readTweets, when timeline has 2 tweets', () => {
       it('calls speak method with the message End of the timeline', () => {
         readTweets('up');
 
-        expect(speak).toBeCalledTimes(1);
+        expect(speak).toHaveBeenCalledTimes(1);
         expect(speak).toHaveBeenNthCalledWith(1, endOfTimelineMessage);
       });
     });
@@ -47,7 +48,7 @@ describe('readTweets, when timeline has 2 tweets', () => {
         readTweets('down');
         readTweets('down');
 
-        expect(speak).toBeCalledTimes(2);
+        expect(speak).toHaveBeenCalledTimes(2);
         expect(speak).toHaveBeenNthCalledWith(2, 'second tweet');
       });
     });
@@ -57,7 +58,7 @@ describe('readTweets, when timeline has 2 tweets', () => {
         readTweets('down');
         readTweets('up');
 
-        expect(speak).toBeCalledTimes(2);
+        expect(speak).toHaveBeenCalledTimes(2);
         expect(speak).toHaveBeenNthCalledWith(2, endOfTimelineMessage);
       });
     });
@@ -67,7 +68,7 @@ describe('readTweets, when timeline has 2 tweets', () => {
         readTweets('up');
         readTweets('down');
 
-        expect(speak).toBeCalledTimes(2);
+        expect(speak).toHaveBeenCalledTimes(2);
         expect(speak).toHaveBeenNthCalledWith(2, 'first tweet');
       });
     });
@@ -77,7 +78,7 @@ describe('readTweets, when timeline has 2 tweets', () => {
         readTweets('up');
         readTweets('up');
 
-        expect(speak).toBeCalledTimes(2);
+        expect(speak).toHaveBeenCalledTimes(2);
         expect(speak).toHaveBeenNthCalledWith(2, endOfTimelineMessage);
       });
     });
@@ -164,6 +165,4 @@ describe('readTweets, when timeline has 2 tweets', () => {
       });
     });
   });
-
 });
-

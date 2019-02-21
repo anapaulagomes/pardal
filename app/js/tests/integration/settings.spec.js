@@ -36,5 +36,4 @@ describe('settings', () => {
     await app.browserWindow.send('settings-create-template');
     expect(await app.client.$('#template').getValue()).toEqual(newTweetTemplate);
   });
-
 });
