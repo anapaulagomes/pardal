@@ -23,7 +23,7 @@ npm run test:unit
 npm run test:integration
 ```
 
-## Packing
+## Packaging
 
 This command will generate a Pardal executable for Linux, MacOS and Windows.
 
