@@ -21,20 +21,26 @@ const addTemplate = (type, template) => {
   return templates;
 };
 
-const getNestedObject = (nestedObj, pathArr) => pathArr.reduce(
-  (obj, key) => (obj && obj[key] !== 'undefined' ? obj[key] : undefined),
-  nestedObj,
-);
+const findValue = (keysFromTwitter, content) => {
+  if (keysFromTwitter.length === 1) {
+    return content[keysFromTwitter[0]];
+  }
+  const currentKey = keysFromTwitter.shift();
 
-const format = (templateKey, content) => {
-  let formattedContent = getTemplates()[templateKey];
+  return findValue(keysFromTwitter, content[currentKey]);
+};
 
-  Object.keys(templateKeysMapping[templateKey]).forEach((variable) => {
-    const keyFromTwitter = templateKeysMapping[templateKey][variable];
-    const valueFromVariable = getNestedObject(content, keyFromTwitter);
-    formattedContent = formattedContent.replace(`$${variable}`, valueFromVariable);
+const format = (templateKey, rawContent) => {
+  const templateKeys = templateKeysMapping[templateKey];
+  let template = getTemplates()[templateKey];
+
+  Object.keys(templateKeys).forEach((keyFromPardal) => {
+    const keyFromTwitter = Object.create(templateKeys[keyFromPardal]);
+    const valueFromTwitter = findValue(keyFromTwitter, rawContent);
+    template = template.replace(`$${keyFromPardal}`, valueFromTwitter);
   });
-  return formattedContent;
+
+  return template;
 };
 
 module.exports = {
