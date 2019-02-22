@@ -1,21 +1,35 @@
 # Pardal
 
-An acessible and customizable Twitter client
+An acessible and customizable Twitter client.
 
-## Running
+[![Build Status](https://dev.azure.com/apgomes88/Pardal/_apis/build/status/anapaulagomes.pardal?branchName=master)](https://dev.azure.com/apgomes88/Pardal/_build/latest?definitionId=2&branchName=master)
+
+## Configuring
+
+First things first: you must install all dependencies.
+
+```bash
+npm install
+```
 
 ```bash
 npm start
 ```
 
+## Testing
+
+```bash
+npm run test:unit
+npm run test:integration
+```
+
 ## Packing
 
-You  must install [electron-packager](https://github.com/electron-userland/electron-packager)
-to generate pardal multiplatform versions.
+This command will generate a Pardal executable for Linux, MacOS and Windows.
 
-If you're not developing on Windows, generating an Electron app
-to Windows requires Wine to be installed.
+```bash
+npm build
+```
 
-```
-electron-packager pardal-web pardal --platform=darwin,win32,linux
-```
+If you're developing on Linux or MacOS, you will need to install Wine
+to generate versions for Windows.
