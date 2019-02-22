@@ -20,4 +20,3 @@ everything is working fine, run the tests. If you're ready to go:
 - If you're fixing a bug, don't forget to add tests reproducing it
 - If you're adding a feature, add tests to cover the main scenarios
 - If something can not be clear by reading your code, add comments
-- Open your PR against **dev**
