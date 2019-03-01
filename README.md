@@ -1,5 +1,9 @@
 # Pardal
 
+<p align="center">
+    <img width="400" height="auto" src="logo.svg"/>
+</p>
+
 An acessible and customizable Twitter client.
 
 [![Build Status](https://dev.azure.com/apgomes88/Pardal/_apis/build/status/anapaulagomes.pardal?branchName=master)](https://dev.azure.com/apgomes88/Pardal/_build/latest?definitionId=2&branchName=master)
