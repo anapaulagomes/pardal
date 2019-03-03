@@ -15,6 +15,5 @@ We need you to make it happen:
 * Developers (Javascript / Electron / Desktop apps strategy)
 * UX
 * Documentation / translations
-* Nice logo 🙏🙏🙏
 
 [Join us](https://github.com/anapaulagomes/pardal/issues)!
