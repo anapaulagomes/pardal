@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager ./pardal pardal --platform=darwin,win32,linux",
+    "build": "electron-packager . pardal --platform=darwin,win32,linux --icon=app/img/icon",
     "test:unit": "jest --coverage --testPathIgnorePatterns='app/js/tests/integration'",
     "test:integration": "jest --coverage --detectOpenHandles --maxWorkers=1 'app/js/tests/integration'",
     "lint": "eslint ."
