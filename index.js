@@ -19,7 +19,7 @@ app.on('ready', () => {
     mainWindow.hide();
   });
 
-  const tray = new Tray(`${__dirname}/app/img/icon.png`);
+  const tray = new Tray(`${__dirname}/app/img/icon.traymenu.png`);
   const contextMenu = Menu.buildFromTemplate([
     {
       label: 'Show Pardal',
