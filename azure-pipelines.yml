@@ -24,6 +24,7 @@ steps:
   displayName: 'Running lint'
 
 - script: |
-    npm run test
+    npm run test:unit
+    npm run test:integration
   condition: succeededOrFailed()
   displayName: 'Running tests'
