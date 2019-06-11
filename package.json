@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/anapaulagomes/pardal#readme",
   "dependencies": {
-    "electron": "^5.0.2",
+    "electron": "^5.0.3",
     "electron-packager": "^13.1.1",
     "electron-prebuilt": "^1.4.13",
     "spectron": "^5.0.0"
