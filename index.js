@@ -10,6 +10,9 @@ app.on('ready', () => {
     width: 800,
     height: 500,
     show: false,
+    webPreferences: {
+      nodeIntegration: true,
+    },
   });
   let on = 'idle';
 
