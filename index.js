@@ -2,6 +2,8 @@ const {
   app, BrowserWindow, globalShortcut, Menu, Tray,
 } = require('electron');
 
+app.commandLine.appendSwitch('enable-speech-dispatcher');
+
 let mainWindow = null;
 global.status = { speaking: false };
 
